@@ -365,8 +365,8 @@
             }
             //If the user has not defined a transform property in their CSS, add it
             //while overriding, including translates for movement
-            if (!self.options.filterInCss.transform)  self.options.filterInCss.transform  = 'translate3d(0,0,0)';
-            if (!self.options.filterOutCss.transform) self.options.filterOutCss.transform = 'translate3d(0,0,0)';
+            // if (!self.options.filterInCss.transform)  self.options.filterInCss.transform  = 'translate3d(0,0,0)';
+            // if (!self.options.filterOutCss.transform) self.options.filterOutCss.transform = 'translate3d(0,0,0)';
         },
 
         /***********************************
@@ -689,7 +689,7 @@
                         left = 0;
                     }
                 }
-                rows = Math.ceil(array.length / cols);
+                rows = 1;
                 containerHeight = rows * array[0].outerHeight();
             }
             //Update the height of .filtr-container based on new positions
@@ -1000,7 +1000,7 @@
             var self         = this,
                 filterOutCss = self._parent._makeDeepCopy(self._parent.options.filterOutCss);
             //Auto add translate to transform over user-defined filterOut styles
-            filterOutCss.transform += ' translate3d(' + self._lastPos.left + 'px,' + self._lastPos.top + 'px, 0)';
+            // filterOutCss.transform += ' translate3d(' + self._lastPos.left + 'px,' + self._lastPos.top + 'px, 0)';
             //Play animation
             self.css(filterOutCss);
             //Make unclickable
@@ -1025,7 +1025,7 @@
             //Make clickable
             self.css('pointer-events', 'auto');
             //Auto add translate to transform over user-defined filterIn styles
-            filterInCss.transform += ' translate3d(' + targetPos.left + 'px,' + targetPos.top + 'px, 0)';
+            filterInCss.transform += ' translate3d(' + targetPos.left + 'px,' + 0 + 'px, 0)';
             //Play animation
             self.css(filterInCss);
         }
